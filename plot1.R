@@ -27,9 +27,8 @@ subdata = subset(data, Date >= "2007-02-01" & Date <= "2007-02-02")
 
 
 png(filename="plot1.png", width = 480, height = 480)
-par(bg="grey")
 hist(subdata$Global_active_power, col="red", main = "Global Active Power",
      xlab="Global Active Power (kilowatts)",
-     cex.lab=1, cex.axis=1, cex.main=1
+     cex.lab=1, cex.axis=1, cex.main=1.2
 )
 dev.off()
