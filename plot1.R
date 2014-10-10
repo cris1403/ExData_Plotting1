@@ -1,10 +1,9 @@
 rm(list=ls())
 setInternet2(use = TRUE)  
 
-# download data
 fileUrl = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip?accessType=DOWNLOAD"
-download.file(fileUrl, destfile="./data/household_power_consumption.zip", mode="wb")
-data = read.table(unzip("./data/household_power_consumption.zip"), 
+download.file(fileUrl, destfile="../data/household_power_consumption.zip", mode="wb")
+data = read.table(unzip("../data/household_power_consumption.zip", exdir="../data"), 
                   sep=";", 
                   header=TRUE, 
                   stringsAsFactors=FALSE,
@@ -28,8 +27,9 @@ subdata = subset(data, Date >= "2007-02-01" & Date <= "2007-02-02")
 
 
 png(filename="plot1.png", width = 480, height = 480)
+par(bg="grey")
 hist(subdata$Global_active_power, col="red", main = "Global Active Power",
      xlab="Global Active Power (kilowatts)",
-     cex.lab=0.9, cex.axis=0.8, cex.main=1
+     cex.lab=1, cex.axis=1, cex.main=1
 )
 dev.off()
