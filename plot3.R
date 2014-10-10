@@ -29,13 +29,13 @@ png(filename="plot3.png", width = 480, height = 480)
 plot(subdata$Datetime, subdata$Sub_metering_1, type='l',
      xlab="",
      ylab="Energy sub metering",
-     cex.lab=0.75, cex.axis=0.75
+     cex.lab=1, cex.axis=1
 )
 lines(subdata$Datetime, subdata$Sub_metering_2, type='l', col="red")
 lines(subdata$Datetime, subdata$Sub_metering_3, type='l', col="blue")
 
 legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
        lty=1, lwd=1.5,
-       col=c("black","red","blue"), cex=0.9)
+       col=c("black","red","blue"), cex=1)
 
 dev.off()
