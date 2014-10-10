@@ -1,10 +1,9 @@
 rm(list=ls())
 setInternet2(use = TRUE)  
 
-# download data
 fileUrl = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip?accessType=DOWNLOAD"
-download.file(fileUrl, destfile="./data/household_power_consumption.zip", mode="wb")
-data = read.table(unzip("./data/household_power_consumption.zip"), 
+download.file(fileUrl, destfile="../data/household_power_consumption.zip", mode="wb")
+data = read.table(unzip("../data/household_power_consumption.zip", exdir="../data"), 
                   sep=";", 
                   header=TRUE, 
                   stringsAsFactors=FALSE,
