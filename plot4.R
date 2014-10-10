@@ -1,10 +1,9 @@
 rm(list=ls())
 setInternet2(use = TRUE)  
 
-# download data
 fileUrl = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip?accessType=DOWNLOAD"
-download.file(fileUrl, destfile="./data/household_power_consumption.zip", mode="wb")
-data = read.table(unzip("./data/household_power_consumption.zip"), 
+download.file(fileUrl, destfile="../data/household_power_consumption.zip", mode="wb")
+data = read.table(unzip("../data/household_power_consumption.zip", exdir="../data"), 
                   sep=";", 
                   header=TRUE, 
                   stringsAsFactors=FALSE,
@@ -31,20 +30,17 @@ par(mfrow = c(2, 2),  mar = c(4, 4, 4, 3), oma = c(0, 0, 2, 0))
 
 plot(subdata$Datetime, subdata$Global_active_power, type='l',
      xlab="",
-     ylab="Global Active Power",
-     cex.lab=0.8, cex.axis=0.75
+     ylab="Global Active Power"
 )
 
 plot(subdata$Datetime, subdata$Voltage, type='l',
      xlab="datetime",
-     ylab="Voltage",
-     cex.lab=0.8, cex.axis=0.75
+     ylab="Voltage"
 )
 
 plot(subdata$Datetime, subdata$Sub_metering_1, type='l',
      xlab="",
-     ylab="Energy sub metering",
-     cex.lab=0.8, cex.axis=0.75
+     ylab="Energy sub metering"
 )
 lines(subdata$Datetime, subdata$Sub_metering_2, type='l', col="red")
 lines(subdata$Datetime, subdata$Sub_metering_3, type='l', col="blue")
@@ -54,7 +50,6 @@ legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"
 
 plot(subdata$Datetime, subdata$Global_reactive_power, type='l',
      xlab="datetime",
-     ylab="Global_reactive_power",
-     cex.lab=0.8, cex.axis=0.75
+     ylab="Global_reactive_power"
 )
 dev.off()
